@@ -19,8 +19,8 @@ task("accounts", "Prints the list of accounts", async () => {
 module.exports = {
   solidity: "0.8.4",
    networks: {
-   development: {
-     url: "172.26.16.1:7545",
+   localhost: {
+     url: "http://127.0.0.1:8545/",
    },
   //  kovan: {
   //   provider: function() {
