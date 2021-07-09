@@ -74,7 +74,7 @@ contract RpsGame is SafeMath {
     uint256 public expireTimeLimit = 30 minutes;
 
     // Initialization contract
-    function GameResult() internal {
+    constructor()  {
         payoff[ROCK][ROCK] = DRAW;
         payoff[ROCK][PAPER] = PLAYERWIN;
         payoff[ROCK][SCISSORS] = DEALERWIN;
@@ -214,4 +214,6 @@ contract RpsGame is SafeMath {
 
         return choice == ROCK || choice == PAPER || choice == SCISSORS;
     }
+
+
 }
