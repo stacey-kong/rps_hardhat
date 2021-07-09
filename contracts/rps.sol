@@ -185,6 +185,12 @@ contract RpsGame is SafeMath {
                 payable(game.dealer).send(game.dealerValue) &&
                     payable(game.player).send(game.playerValue)
             );
+            //send back players money if resulting error
+        } else {
+            require(
+                payable(game.dealer).send(game.dealerValue) &&
+                    payable(game.player).send(game.playerValue)
+            );
         }
         game.closed = true;
         game.result = result;
