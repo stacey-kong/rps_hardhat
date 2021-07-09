@@ -1,7 +1,8 @@
 //SPDX-License-Identifier: Unlicense
 pragma solidity ^0.8.0;
 
-// import "hardhat/console.sol";
+import "hardhat/console.sol";
+
 contract SafeMath {
     function safeMul(uint256 a, uint256 b) internal pure returns (uint256) {
         uint256 c = a * b;
@@ -201,11 +202,14 @@ contract RpsGame is SafeMath {
         address sender,
         uint8 choice,
         bytes32 randomSecret
-    ) public pure returns (bytes32) {
+    ) public view returns (bytes32) {
+        console.log("get hashing");
         return keccak256(abi.encodePacked(sender, choice, randomSecret));
     }
 
-    function checkChoice(uint8 choice) public pure returns (bool) {
+    function checkChoice(uint8 choice) public view returns (bool) {
+        console.log("get choice");
+
         return choice == ROCK || choice == PAPER || choice == SCISSORS;
     }
 }
