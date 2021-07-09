@@ -125,7 +125,6 @@ contract RpsGame is SafeMath {
                 game.dealer != msg.sender &&
                 game.playerChoice == NONE
         );
-        require(game.player == address(0) || game.player == msg.sender);
         require(!game.closed);
         require(block.timestamp < game.expireTime);
         require(checkChoice(choice));
