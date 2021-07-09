@@ -93,17 +93,13 @@ contract RpsGame is SafeMath {
     }
 
     //create a game
-    function createGame(bytes32 dealerHash, address payable player)
-        public
-        payable
-        returns (uint256)
-    {
+    function createGame(bytes32 dealerHash) public payable returns (uint256) {
         require(dealerHash != 0x0);
         maxgame += 1;
         //create a storage variable game and assign to mapping games
         Game storage game = games[maxgame];
+        game.gameId = maxgame;
         game.dealer = msg.sender;
-        game.player = player;
         game.dealerHash = dealerHash;
         game.dealerChoice = NONE;
         game.dealerValue = msg.value;
