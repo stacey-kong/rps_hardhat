@@ -51,6 +51,7 @@ contract RpsGame is SafeMath {
 
     ///  struct of a game
     struct Game {
+        uint256 gameId;
         uint256 expireTime;
         address dealer;
         uint256 dealerValue;
